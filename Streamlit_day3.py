@@ -105,22 +105,22 @@ if uploaded_file:
   #      st.warning("The file path provided does not exist. Please check for typos!")
   #  
  # Load the data
- df = pd.read_csv(file_path)
- st.dataframe(df)
+df = pd.read_csv(file_path)
+st.dataframe(df)
 
         # --- DOWNLOAD SECTION ---
- st.divider() # Visual break
+st.divider() # Visual break
         
         # 1. Convert DataFrame to CSV (crucial step)
- csv_data = df.to_csv(index=False).encode('utf-8')
+csv_data = df.to_csv(index=False).encode('utf-8')
 
         # 2. Create the download button
- st.download_button(
-     label="📥 Download Data as CSV",
-     data=csv_data,
-     file_name='exported_publications.csv',
-     mime='text/csv',
-        )
+st.download_button(
+    label="📥 Download Data as CSV",
+    data=csv_data,
+    file_name='exported_publications.csv',
+    mime='text/csv',
+       )
 
     # except Exception as e:
     #     st.error(f"Error: {e}")   
@@ -221,6 +221,7 @@ st.header("Contact Information")
 email = "dammynath@yahoo.com"
 
 st.write(f"You can reach {name} at {email}.")
+
 
 
 
