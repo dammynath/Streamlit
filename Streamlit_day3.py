@@ -9,7 +9,7 @@ st.set_page_config(
 )
 #Add a Google Scholar Markdown at the top right-hand corner
 def add_top_right_scholar(scholar_id):
-    scholar_url = f"https://scholar.google.com/citations?user={scholar_id}&hl=en"
+    scholar_url = f"https://scholar.google.com/citations?user=nunNrB0AAAAJ&hl=en"
     
     # Custom CSS to position the element
     st.markdown(
@@ -48,17 +48,17 @@ def add_top_right_scholar(scholar_id):
 
 # --- APP LAYOUT ---
 # 1. Page Config (Always first)
-st.set_page_config(page_title="Racing Data Dashboard", layout="wide")
+# st.set_page_config(page_title="Racing Data Dashboard", layout="wide")
 
 # 2. Add the Scholar Badge (It will float to the top right)
 # Replace with your actual Scholar ID
-add_top_right_scholar("PA_O-6IAAAAJ")
+add_top_right_scholar("nunNrB0AAAAJ")
 
 # 3. Your regular App Content
-st.title("Racing Game Analysis")
-st.write("Welcome to the Summer School 2026 Data Dashboard.")
+# st.title("Racing Game Analysis")
+# st.write("Welcome to the Summer School 2026 Data Dashboard.")
 # Title of the app
-st.title("Researcher Profile with Data")
+st.title("Researcher's Profile")
 
 # Collect basic information
 name = "Dr. Nathanael Damilare Ojo"
@@ -66,7 +66,7 @@ field = "Chemistry"
 institution = "University of Johannesburg"
 
 # Display basic profile information
-st.header("Researcher Overview")
+st.header("Researcher's Overview")
 st.write(f"**Name:** {name}")
 st.write(f"**Field of Research:** {field}")
 st.write(f"**Institution:** {institution}")
@@ -85,8 +85,8 @@ if uploaded_file:
     st.dataframe(publications)
     
 # 1. Use text_input instead of file_uploader
-file_path = st.text_input("Enter the full path to your Publications CSV:", 
-                         placeholder="C:\\Users\\NATHANAEL\\Desktop\\CSS2026\Day3\\streamlit_files\\streamlit_files\\Ojo_publications.csv")
+# file_path = st.text_input("Enter the full path to your Publications CSV:", 
+#                         placeholder="C:\\Users\\NATHANAEL\\Desktop\\CSS2026\Day3\\streamlit_files\\streamlit_files\\Ojo_publications.csv")
 
 # 2. Add logic to verify and load the file
 if file_path:
@@ -221,4 +221,5 @@ st.header("Contact Information")
 email = "dammynath@yahoo.com"
 
 st.write(f"You can reach {name} at {email}.")
+
 
