@@ -3,8 +3,65 @@ import pandas as pd
 import numpy as np
 import os
 
+import streamlit as st
+
+st.set_page_config(
+    page_title="Ojo's Profile",
+    page_icon="https://scholar.googleusercontent.com/citations?view_op=medium_photo&user=nunNrB0AAAAJ&citpid=5", # Can be a path to a file, a URL, or an emoji "🚀"
+)
+
+def add_top_right_scholar(scholar_id):
+    scholar_url = f"https://scholar.google.com/citations?user=nunNrB0AAAAJ&hl=en"
+    
+    # Custom CSS to position the element
+    st.markdown(
+        f"""
+        <style>
+        .scholar-badge {{
+            position: absolute;
+            top: -50px;  /* Adjust this to move it up/down relative to the header */
+            right: 0px;
+            z-index: 1000;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            background-color: white;
+            padding: 5px 10px;
+            border-radius: 50px;
+            box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
+            border: 1px solid #4285F4;
+            transition: 0.3s;
+        }}
+        .scholar-badge:hover {{
+            background-color: #f1f1f1;
+            box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+        }}
+        </style>
+        
+        <a class="scholar-badge" href="{scholar_url}" target="_blank">
+            <img src="https://scholar.google.com/favicon.ico" style="width:16px; margin-right:8px;">
+            <span style="color: #4285F4; font-size: 14px; font-weight: bold; font-family: sans-serif;">
+                Google Scholar
+            </span>
+        </a>
+        """,
+        unsafe_allow_html=True
+    )
+
+# --- APP LAYOUT ---
+# 1. Page Config (Always first)
+#st.set_page_config(page_title="Racing Data Dashboard", layout="wide")
+
+# 2. Add the Scholar Badge (It will float to the top right)
+# Replace with your actual Scholar ID
+add_top_right_scholar("PA_O-6IAAAAJ")
+
+# 3. Your regular App Content
+#st.title("Racing Game Analysis")
+#st.write("Welcome to the Summer School 2026 Data Dashboard.")
+
 # Title of the app
-st.title("Researcher Profile with Data")
+st.title("Researcher's Profile")
 
 # Collect basic information
 name = "Dr. Nathanael Damilare Ojo"
