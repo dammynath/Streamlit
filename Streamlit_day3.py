@@ -3,6 +3,10 @@ import pandas as pd
 import numpy as np
 import os
 
+st.set_page_config(
+    page_title="My Cool App",
+    page_icon="https://scholar.googleusercontent.com/citations?view_op=medium_photo&user=nunNrB0AAAAJ&citpid=5", # Can be a path to a file, a URL, or an emoji "🚀"
+)
 # Title of the app
 st.title("Researcher Profile with Data")
 
@@ -165,4 +169,5 @@ elif data_option == "Climate Data":
 # Add a contact section
 st.header("Contact Information")
 email = "dammynath@yahoo.com"
+
 st.write(f"You can reach {name} at {email}.")
