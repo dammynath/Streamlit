@@ -105,7 +105,7 @@ if uploaded_file:
   #      st.warning("The file path provided does not exist. Please check for typos!")
   #  
  # Load the data
-        df = pd.read_csv(file_path)
+    df = pd.read_csv(file_path)
         st.dataframe(df)
 
         # --- DOWNLOAD SECTION ---
@@ -221,6 +221,7 @@ st.header("Contact Information")
 email = "dammynath@yahoo.com"
 
 st.write(f"You can reach {name} at {email}.")
+
 
 
 
