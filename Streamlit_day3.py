@@ -89,22 +89,22 @@ if uploaded_file:
 #                         placeholder="C:\\Users\\NATHANAEL\\Desktop\\CSS2026\Day3\\streamlit_files\\streamlit_files\\Ojo_publications.csv")
 
 # 2. Add logic to verify and load the file
-#if file_path:
+if file_path:
     # Check if the path actually exists to avoid crashing the app
-#    if os.path.exists("C:\\Users\\NATHANAEL\\Desktop\\CSS2026\Day3\\streamlit_files\\streamlit_files\\Ojo_publications.csv"):
-#        try:
+    if os.path.exists("C:\\Users\\NATHANAEL\\Desktop\\CSS2026\Day3\\streamlit_files\\streamlit_files\\Ojo_publications.csv"):
+        try:
             # We use pd.read_csv just like before
- #           publications = pd.read_csv(file_path)
+            publications = pd.read_csv(file_path)
             
-  #          st.success(f"Successfully loaded: {os.path.basename(file_path)}")
-  #          st.dataframe(publications)
+            st.success(f"Successfully loaded: {os.path.basename(file_path)}")
+            st.dataframe(publications)
             
-  #      except Exception as e:
-  #          st.error(f"Error reading the CSV: {e}")
-  #  else:
-  #      st.warning("The file path provided does not exist. Please check for typos!")
-  #  
-# Load the data
+        except Exception as e:
+            st.error(f"Error reading the CSV: {e}")
+    else:
+        st.warning("The file path provided does not exist. Please check for typos!")
+    
+ # Load the data
         df = pd.read_csv(file_path)
         st.dataframe(df)
 
@@ -123,7 +123,8 @@ if uploaded_file:
         )
 
     # except Exception as e:
-    #     st.error(f"Error: {e}")       
+    #     st.error(f"Error: {e}")   
+    
     
     
 # if uploaded_file:
@@ -131,15 +132,15 @@ if uploaded_file:
 #     st.dataframe(publications)
 
     # Add filtering for year or keyword
-keyword = st.text_input("Filter by keyword", "")
-if keyword:
-    filtered = publications[
-        publications.apply(lambda row: keyword.lower() in row.astype(str).str.lower().values, axis=1)
-    ]
-    st.write(f"Filtered Results for '{keyword}':")
-    st.dataframe(filtered)
-else:
-    st.write("Showing all publications")
+    keyword = st.text_input("Filter by keyword", "")
+    if keyword:
+        filtered = publications[
+            publications.apply(lambda row: keyword.lower() in row.astype(str).str.lower().values, axis=1)
+        ]
+        st.write(f"Filtered Results for '{keyword}':")
+        st.dataframe(filtered)
+    else:
+        st.write("Showing all publications")
 
 # Add a section for visualizing publication trends
 st.header("Publication Trends")
@@ -218,15 +219,4 @@ elif data_option == "Climate Data":
 # Add a contact section
 st.header("Contact Information")
 email = "dammynath@yahoo.com"
-
 st.write(f"You can reach {name} at {email}.")
-
-
-
-
-
-
-
-
-
-
