@@ -89,21 +89,21 @@ if uploaded_file:
 #                         placeholder="C:\\Users\\NATHANAEL\\Desktop\\CSS2026\Day3\\streamlit_files\\streamlit_files\\Ojo_publications.csv")
 
 # 2. Add logic to verify and load the file
-if file_path:
+#if file_path:
     # Check if the path actually exists to avoid crashing the app
-    if os.path.exists("C:\\Users\\NATHANAEL\\Desktop\\CSS2026\Day3\\streamlit_files\\streamlit_files\\Ojo_publications.csv"):
-        try:
+#    if os.path.exists("C:\\Users\\NATHANAEL\\Desktop\\CSS2026\Day3\\streamlit_files\\streamlit_files\\Ojo_publications.csv"):
+#        try:
             # We use pd.read_csv just like before
-            publications = pd.read_csv(file_path)
+ #           publications = pd.read_csv(file_path)
             
-            st.success(f"Successfully loaded: {os.path.basename(file_path)}")
-            st.dataframe(publications)
+  #          st.success(f"Successfully loaded: {os.path.basename(file_path)}")
+  #          st.dataframe(publications)
             
-        except Exception as e:
-            st.error(f"Error reading the CSV: {e}")
-    else:
-        st.warning("The file path provided does not exist. Please check for typos!")
-    
+  #      except Exception as e:
+  #          st.error(f"Error reading the CSV: {e}")
+  #  else:
+  #      st.warning("The file path provided does not exist. Please check for typos!")
+  #  
  # Load the data
         df = pd.read_csv(file_path)
         st.dataframe(df)
@@ -221,5 +221,6 @@ st.header("Contact Information")
 email = "dammynath@yahoo.com"
 
 st.write(f"You can reach {name} at {email}.")
+
 
 
