@@ -105,21 +105,21 @@ if uploaded_file:
   #      st.warning("The file path provided does not exist. Please check for typos!")
   #  
  # Load the data
-        df = pd.read_csv(file_path)
-        st.dataframe(df)
+ df = pd.read_csv(file_path)
+ st.dataframe(df)
 
         # --- DOWNLOAD SECTION ---
-        st.divider() # Visual break
+ st.divider() # Visual break
         
         # 1. Convert DataFrame to CSV (crucial step)
-        csv_data = df.to_csv(index=False).encode('utf-8')
+ csv_data = df.to_csv(index=False).encode('utf-8')
 
         # 2. Create the download button
-        st.download_button(
-            label="📥 Download Data as CSV",
-            data=csv_data,
-            file_name='exported_publications.csv',
-            mime='text/csv',
+ st.download_button(
+     label="📥 Download Data as CSV",
+     data=csv_data,
+     file_name='exported_publications.csv',
+     mime='text/csv',
         )
 
     # except Exception as e:
@@ -132,15 +132,15 @@ if uploaded_file:
 #     st.dataframe(publications)
 
     # Add filtering for year or keyword
-    keyword = st.text_input("Filter by keyword", "")
-    if keyword:
-        filtered = publications[
-            publications.apply(lambda row: keyword.lower() in row.astype(str).str.lower().values, axis=1)
-        ]
-        st.write(f"Filtered Results for '{keyword}':")
-        st.dataframe(filtered)
-    else:
-        st.write("Showing all publications")
+keyword = st.text_input("Filter by keyword", "")
+if keyword:
+    filtered = publications[
+        publications.apply(lambda row: keyword.lower() in row.astype(str).str.lower().values, axis=1)
+    ]
+    st.write(f"Filtered Results for '{keyword}':")
+    st.dataframe(filtered)
+else:
+    st.write("Showing all publications")
 
 # Add a section for visualizing publication trends
 st.header("Publication Trends")
@@ -221,6 +221,7 @@ st.header("Contact Information")
 email = "dammynath@yahoo.com"
 
 st.write(f"You can reach {name} at {email}.")
+
 
 
 
